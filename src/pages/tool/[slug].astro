@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { tools, categories, getToolsByCategory, getTool } from '@/lib/tools';
 
+export const prerender = true;
+
 export function getStaticPaths() {
   return tools.map((tool) => ({
     params: { slug: tool.slug },

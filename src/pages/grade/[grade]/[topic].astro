@@ -3,6 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getGrade, getTopic } from '@/lib/grades';
 import { FREE_WORKSHEETS_PER_TOPIC, getAccessLevel, PRICING, getCheckoutUrl } from '@/lib/payment';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const { grades } = await import('@/lib/grades');
   const paths: { params: Record<string, string>; props: Record<string, any> }[] = [];
