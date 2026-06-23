@@ -6,8 +6,8 @@
 // ==========================================
 export const LEMONSQUEEZY_CONFIG = {
   storeId: 'MATHPRACTICE_K5', // Your LemonSqueezy store ID
-  successUrl: 'https://mathpracticek5.com/success/',
-  cancelUrl: 'https://mathpracticek5.com/cancel/',
+  successUrl: 'https://efficientAItools.com/success/',
+  cancelUrl: 'https://efficientAItools.com/cancel/',
   billingUrl: 'https://mathpracticek5.lemonsqueezy.com/billing',
 };
 

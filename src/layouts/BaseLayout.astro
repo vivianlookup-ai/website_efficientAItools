@@ -10,7 +10,7 @@ export interface Props {
 
 const { title, description, canonical, ogImage } = Astro.props;
 const url = canonical || Astro.url.pathname;
-const image = ogImage || 'https://mathpracticek5.com/logo.png';
+const image = ogImage || 'https://efficientAItools.com/logo.png';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -31,14 +31,14 @@ const LOGO_HEIGHT = 32;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | ToolCraft</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={`https://mathpracticek5.com${url}`} />
+    <link rel="canonical" href={`https://efficientAItools.com${url}`} />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={`${title} | ToolCraft`} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={`https://mathpracticek5.com${url}`} />
+    <meta property="og:url" content={`https://efficientAItools.com${url}`} />
     <meta property="og:site_name" content="ToolCraft" />
     <meta property="og:image" content={image} />
 
@@ -53,13 +53,13 @@ const LOGO_HEIGHT = 32;
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "ToolCraft",
-      "url": "https://mathpracticek5.com",
+      "url": "https://efficientAItools.com",
       "description": description,
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://mathpracticek5.com/search?q={search_term_string}"
+          "urlTemplate": "https://efficientAItools.com/search?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }

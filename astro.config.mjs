@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://mathpracticek5.com",
+  site: "https://efficientAItools.com",
   output: "static",
   vite: {
     resolve: {
