@@ -1,5 +1,5 @@
 /* ============================================
-   ToolCraft — Global Styles
+   efficientAItools.com — Global Styles
    Dark Tech / Cyber Theme
    ============================================ */
 
@@ -167,6 +167,30 @@ a:hover {
   font-size: 0.85rem;
   font-family: 'JetBrains Mono', monospace;
   box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Brand logo — efficientAItools.com */
+.brand-logo {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+.brand-logo .brand-e {
+  color: #54a0ff; /* blue */
+}
+.brand-logo .brand-ai {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.brand-logo .brand-tools {
+  color: #e8e8ed; /* white-ish */
+}
+.brand-logo-footer {
+  font-size: 1.25rem;
 }
 
 .nav {

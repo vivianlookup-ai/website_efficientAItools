@@ -29,22 +29,22 @@ const LOGO_HEIGHT = 32;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | ToolCraft</title>
+    <title>{title} | efficientAItools</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={`https://efficientAItools.com${url}`} />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content={`${title} | ToolCraft`} />
+    <meta property="og:title" content={`${title} | efficientAItools`} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`https://efficientAItools.com${url}`} />
-    <meta property="og:site_name" content="ToolCraft" />
+    <meta property="og:site_name" content="efficientAItools.com" />
     {image && <meta property="og:image" content={image} />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | ToolCraft`} />
+    <meta name="twitter:title" content={`${title} | efficientAItools`} />
     <meta name="twitter:description" content={description} />
     {image && <meta name="twitter:image" content={image} />}
 
@@ -52,7 +52,7 @@ const LOGO_HEIGHT = 32;
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "ToolCraft",
+      "name": "efficientAItools.com",
       "url": "https://efficientAItools.com",
       "description": description,
       "potentialAction": {
@@ -70,7 +70,9 @@ const LOGO_HEIGHT = 32;
     <header class="header">
       <div class="header-inner">
         <a href="/" class="logo">
-          <span class="logo-text" style="font-size: {LOGO_HEIGHT * 0.6}px; font-weight: 700; letter-spacing: -0.5px;">ToolCraft</span>
+          <span class="brand-logo">
+            <span class="brand-e">efficient</span><span class="brand-ai">AI</span><span class="brand-tools">tools.com</span>
+          </span>
         </a>
         <nav class="nav">
           {navItems.map((item) => (
@@ -95,7 +97,9 @@ const LOGO_HEIGHT = 32;
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="/" class="logo" style="margin-bottom: 12px;">
-              <span style="font-size: 18px; font-weight: 700;">ToolCraft</span>
+              <span class="brand-logo brand-logo-footer">
+                <span class="brand-e">efficient</span><span class="brand-ai">AI</span><span class="brand-tools">tools.com</span>
+              </span>
             </a>
             <p>
               A curated collection of free online tools — PDF utilities, document converters, 
@@ -124,7 +128,7 @@ const LOGO_HEIGHT = 32;
           </div>
         </div>
         <div class="footer-bottom">
-          <span>&copy; {new Date().getFullYear()} ToolCraft. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} efficientAItools.com. All rights reserved.</span>
           <span>Built with care</span>
         </div>
       </div>
