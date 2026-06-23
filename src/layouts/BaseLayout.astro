@@ -10,7 +10,7 @@ export interface Props {
 
 const { title, description, canonical, ogImage } = Astro.props;
 const url = canonical || Astro.url.pathname;
-const image = ogImage || 'https://mathpracticek5.com/og.png';
+const image = ogImage || 'https://mathpracticek5.com/logo.png';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -18,6 +18,9 @@ const navItems = [
   { href: '/blog/', label: 'Blog' },
   { href: '/about/', label: 'About' },
 ];
+
+// Logo height for layout
+const LOGO_HEIGHT = 32;
 ---
 
 <!doctype html>
@@ -67,7 +70,7 @@ const navItems = [
     <header class="header">
       <div class="header-inner">
         <a href="/" class="logo">
-          <span class="logo-icon">{'>_'}</span>
+          <img src="/logo.png" alt="ToolCraft" style="height: {LOGO_HEIGHT}px; width: auto;" />
           ToolCraft
         </a>
         <nav class="nav">
@@ -93,7 +96,7 @@ const navItems = [
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="/" class="logo" style="margin-bottom: 12px;">
-              <span class="logo-icon">{'>_'}</span>
+              <img src="/logo.png" alt="ToolCraft" style="height: 28px; width: auto;" />
               ToolCraft
             </a>
             <p>
