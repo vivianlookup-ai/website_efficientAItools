@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const posts = [
+    {
+      slug: 'free-dev-tools-roundup',
+      title: '10 Free Online Tools Every Developer Should Bookmark',
+      date: '2025-12-15',
+      tag: 'Roundup',
+    },
+    {
+      slug: 'merge-pdfs-locally-privacy',
+      title: 'How to Merge PDFs Without Uploading to a Server',
+      date: '2025-11-28',
+      tag: 'Privacy',
+    },
+    {
+      slug: 'homeschool-math-tools',
+      title: 'Best Online Tools for Homeschooling Math',
+      date: '2025-11-10',
+      tag: 'Education',
+    },
+  ];
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout
+  title={post.title}
+  description={`${post.title} — ToolCraft Blog`}
+>
+  <div class="container">
+    <div class="page-header">
+      <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/blog/">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>{post.title}</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+        <span style="font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">{post.tag}</span>
+        <span style="font-size: 0.75rem; color: var(--text-tertiary);">{post.date}</span>
+      </div>
+      <h1>{post.title}</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-content">
+      <p>
+        This is a placeholder blog post. Replace this content with your actual post.
+        The blog post structure is ready — just update the content here and in 
+        <code>src/pages/blog.astro</code> to add more posts.
+      </p>
+
+      <h2>Why This Matters</h2>
+      <p>
+        ToolCraft is built around the idea that online tools should be simple, private, and 
+        free. Every tool we build follows these principles.
+      </p>
+
+      <h2>Getting Started</h2>
+      <p>
+        Browse our <a href="/tools/">tool gallery</a> to find what you need. 
+        Everything is ready to use — no sign-up, no uploads, no hassles.
+      </p>
+
+      <p>
+        <a href="/blog/" style="color: var(--text-secondary);">&larr; Back to Blog</a>
+      </p>
+    </div>
+  </div>
+</BaseLayout>

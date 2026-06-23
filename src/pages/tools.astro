@@ -1,0 +1,64 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { tools, categories } from '@/lib/tools';
+
+const categoryEntries = Object.values(categories);
+---
+
+<BaseLayout
+  title="All Free Tools — Gallery"
+  description="Browse our complete collection of free online tools. PDF tools, document converters, download utilities, and more."
+>
+  <div class="container">
+    <div class="page-header">
+      <h1>All Tools</h1>
+      <p>Every tool in our collection, organized and ready to use. Filter by category or browse the full gallery.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Category pills -->
+    <div class="filter-bar">
+      <a href="/tools/" class="filter-btn active">All</a>
+      {categoryEntries.map((cat) => (
+        <a href={`/category/${cat.slug}/`} class="filter-btn">
+          {cat.icon} {cat.name}
+        </a>
+      ))}
+    </div>
+
+    <!-- Gallery -->
+    <div class="tool-gallery">
+      {tools.map((tool) => (
+        <a href={tool.url} class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style={`background: ${tool.iconBg};`}>
+              {tool.icon}
+            </div>
+            <div class="tool-card-info">
+              <div class="tool-card-title">
+                {tool.name}
+                {tool.badge && (
+                  <span class={`tool-card-badge badge-${tool.badge}`}>
+                    {tool.badge === 'free' ? 'Free' : tool.badge === 'new' ? 'New' : 'Premium'}
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+          <div class="tool-card-desc">{tool.tagline}</div>
+          <div class="tool-card-footer">
+            <div class="tool-card-tags">
+              {tool.tags.slice(0, 3).map((tag) => (
+                <span class="tool-tag">{tag}</span>
+              ))}
+            </div>
+            <div class="tool-card-stats">
+              <span>⚡ {tool.uses.toLocaleString()}</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

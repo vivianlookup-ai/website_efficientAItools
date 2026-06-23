@@ -1,0 +1,54 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    title: '10 Free Online Tools Every Developer Should Bookmark',
+    excerpt: 'From JSON formatters to image compressors, here are the free tools that make development work faster and easier.',
+    tag: 'Roundup',
+    date: '2025-12-15',
+    slug: 'free-dev-tools-roundup',
+  },
+  {
+    title: 'How to Merge PDFs Without Uploading to a Server',
+    excerpt: 'Learn why browser-based PDF processing is the most private and secure way to work with sensitive documents.',
+    tag: 'Privacy',
+    date: '2025-11-28',
+    slug: 'merge-pdfs-locally-privacy',
+  },
+  {
+    title: 'Best Online Tools for Homeschooling Math',
+    excerpt: 'A guide to free and paid resources for K-5 math practice, including printable worksheets and interactive tools.',
+    tag: 'Education',
+    date: '2025-11-10',
+    slug: 'homeschool-math-tools',
+  },
+];
+---
+
+<BaseLayout
+  title="Blog — Productivity Tips &amp; Tool Guides"
+  description="Tips, guides, and roundups about free online tools, productivity, and digital workflows."
+>
+  <div class="container">
+    <div class="page-header">
+      <h1>Blog</h1>
+      <p>Tips, guides, and roundups about using online tools more effectively.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <a href={`/blog/${post.slug}/`} class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-card-tag">{post.tag}</div>
+            <h3 class="blog-card-title">{post.title}</h3>
+            <p class="blog-card-excerpt">{post.excerpt}</p>
+            <div class="blog-card-meta">{post.date}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

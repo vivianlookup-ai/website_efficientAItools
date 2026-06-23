@@ -1,32 +1,64 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Privacy Policy" description="MathPractice K5 privacy policy. Learn how we collect, use, and protect your information.">
-  <div class="container" style="max-width: 720px; padding-top: 60px; padding-bottom: 60px;">
-    <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 8px;">Privacy Policy</h1>
-    <p style="font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 32px;">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+<BaseLayout
+  title="Privacy Policy"
+  description="ToolCraft privacy policy — we take your privacy seriously."
+>
+  <div class="container">
+    <div class="page-header">
+      <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Privacy Policy</span>
+      </div>
+      <h1>Privacy Policy</h1>
+    </div>
+  </div>
 
-    <div style="line-height: 1.8; font-size: 0.9375rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 24px;">
-      <section>
-        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Information We Collect</h2>
-        <p>MathPractice K5 is a static website. We do not collect personal information from visitors. We may use basic analytics to understand which pages are most popular, but no personally identifiable information is tracked.</p>
-      </section>
+  <div class="container">
+    <div class="page-content">
+      <h2>Our Commitment to Privacy</h2>
+      <p>
+        ToolCraft is built with privacy as a core principle. We minimize data collection 
+        and never sell or share your personal information.
+      </p>
 
-      <section>
-        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Cookies</h2>
-        <p>This site may use minimal cookies for analytics purposes only. No tracking cookies for advertising are used.</p>
-      </section>
+      <h2>What We Collect</h2>
+      <p>We collect minimal information:</p>
+      <ul>
+        <li><strong>Basic analytics</strong> — Anonymous page view counts to understand which tools are popular.</li>
+        <li><strong>Contact form data</strong> — If you reach out, we keep your name and email to respond.</li>
+      </ul>
 
-      <section>
-        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Third-Party Services</h2>
-        <p>We do not share your data with third parties. Any analytics service we use is configured to anonymize IP addresses.</p>
-      </section>
+      <h2>What We DON'T Collect</h2>
+      <ul>
+        <li>We <strong>do not</strong> upload or store files you process through our tools.</li>
+        <li>We <strong>do not</strong> use cookies for tracking or advertising.</li>
+        <li>We <strong>do not</strong> require accounts or email sign-ups to use tools.</li>
+      </ul>
 
-      <section>
-        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Contact</h2>
-        <p>If you have questions about this privacy policy, please <a href="/contact/">contact us</a>.</p>
-      </section>
+      <h2>Local Processing</h2>
+      <p>
+        All PDF, image, and document processing happens entirely in your browser. 
+        Your files never leave your device. This means your documents, images, and data 
+        remain private and under your control.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        We may use minimal third-party services (e.g., hosting, CDN) that have their own 
+        privacy policies. These are limited to infrastructure only — no analytics trackers, 
+        no ad networks, no social media pixels.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy-related questions, <a href="/contact/">contact us</a>.
+      </p>
+
+      <p><em>Last updated: December 2025</em></p>
     </div>
   </div>
 </BaseLayout>

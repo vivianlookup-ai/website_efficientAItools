@@ -1,0 +1,126 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { tools, categories, getToolsByCategory, getTool } from '@/lib/tools';
+
+export function getStaticPaths() {
+  return tools.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+const cat = categories[tool.category];
+const related = getToolsByCategory(tool.category).filter((t) => t.slug !== tool.slug).slice(0, 3);
+---
+
+<BaseLayout
+  title={tool.name}
+  description={tool.tagline}
+>
+  <!-- Breadcrumb + Header -->
+  <div class="container">
+    <div class="page-header">
+      <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/tools/">Tools</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href={`/category/${cat.slug}/`}>{cat.name}</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>{tool.name}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tool Detail -->
+  <div class="container">
+    <div class="tool-detail">
+      <div class="tool-detail-main">
+        <div class="tool-detail-header">
+          <div class="tool-detail-icon" style={`background: ${tool.iconBg};`}>
+            {tool.icon}
+          </div>
+          <div>
+            <h1 class="tool-detail-title">{tool.name}</h1>
+            <div class="tool-detail-meta">
+              <span class="tool-tag" style="font-size: 0.75rem;">
+                {cat.icon} {cat.name}
+              </span>
+              {tool.badge && (
+                <span class={`tool-card-badge badge-${tool.badge}`} style="font-size: 0.7rem;">
+                  {tool.badge === 'free' ? 'Free' : tool.badge === 'new' ? 'New' : 'Premium'}
+                </span>
+              )}
+              {tool.tags.map((tag) => (
+                <span class="tool-tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-detail-content">
+          <p style="font-size: 1.0625rem; color: var(--text-primary); margin-bottom: 24px;">
+            {tool.description}
+          </p>
+
+          <h2>✨ Features</h2>
+          <ul>
+            {tool.features.map((f) => (
+              <li>{f}</li>
+            ))}
+          </ul>
+
+          <h2>📖 How to Use</h2>
+          <ol style="padding-left: 20px; list-style: decimal;">
+            {tool.howToUse.map((step, i) => (
+              <li style="padding: 6px 0; color: var(--text-secondary);">
+                {step}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <div class="tool-detail-sidebar">
+        <div class="tool-sidebar-card">
+          <h3>Pricing</h3>
+          <div class="tool-sidebar-price">
+            {tool.price === 'free' ? '$0' : tool.price === 'freemium' ? 'Free' : '$$'}
+            {tool.price === 'free' && <span> / forever</span>}
+            {tool.price === 'freemium' && <span style="font-size: 0.875rem; color: var(--text-tertiary); display: block; margin-top: 4px;">+ premium tier available</span>}
+          </div>
+          <a href={tool.url} class="btn btn-primary tool-sidebar-action">
+            🚀 Launch Tool
+          </a>
+          <div style="margin-top: 16px; text-align: center; font-size: 0.75rem; color: var(--text-tertiary);">
+            ⚡ {tool.uses.toLocaleString()} uses &middot; No sign-up required
+          </div>
+        </div>
+
+        {related.length > 0 && (
+          <div class="tool-sidebar-card">
+            <h3>Related Tools</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              {related.map((rt) => (
+                <a href={rt.url} style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 8px; border-radius: var(--radius); background: var(--bg-tertiary);" class="hover-lift">
+                  <span style="font-size: 1.2rem;">{rt.icon}</span>
+                  <div>
+                    <div style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary);">{rt.name}</div>
+                    <div style="font-size: 0.7rem; color: var(--text-tertiary);">⚡ {rt.uses.toLocaleString()}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .hover-lift:hover {
+    background: var(--bg-hover) !important;
+  }
+</style>
