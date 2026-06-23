@@ -10,7 +10,7 @@ export interface Props {
 
 const { title, description, canonical, ogImage } = Astro.props;
 const url = canonical || Astro.url.pathname;
-const image = ogImage || 'https://efficientAItools.com/logo.png';
+const image = ogImage || '';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -40,13 +40,13 @@ const LOGO_HEIGHT = 32;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`https://efficientAItools.com${url}`} />
     <meta property="og:site_name" content="ToolCraft" />
-    <meta property="og:image" content={image} />
+    {image && <meta property="og:image" content={image} />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | ToolCraft`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    {image && <meta name="twitter:image" content={image} />}
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -70,8 +70,7 @@ const LOGO_HEIGHT = 32;
     <header class="header">
       <div class="header-inner">
         <a href="/" class="logo">
-          <img src="/logo.png" alt="ToolCraft" style="height: {LOGO_HEIGHT}px; width: auto;" />
-          ToolCraft
+          <span class="logo-text" style="font-size: {LOGO_HEIGHT * 0.6}px; font-weight: 700; letter-spacing: -0.5px;">ToolCraft</span>
         </a>
         <nav class="nav">
           {navItems.map((item) => (
@@ -96,8 +95,7 @@ const LOGO_HEIGHT = 32;
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="/" class="logo" style="margin-bottom: 12px;">
-              <img src="/logo.png" alt="ToolCraft" style="height: 28px; width: auto;" />
-              ToolCraft
+              <span style="font-size: 18px; font-weight: 700;">ToolCraft</span>
             </a>
             <p>
               A curated collection of free online tools — PDF utilities, document converters, 
