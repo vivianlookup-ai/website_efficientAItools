@@ -1,6 +1,6 @@
 # Google Analytics Setup
 
-Tracking ID: **G-0V1FYBX0J9**
+Tracking ID: **G-WKVQ6S7K6V**
 
 ## Where the tag lives
 
@@ -8,12 +8,12 @@ Tracking ID: **G-0V1FYBX0J9**
 
 ```html
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0V1FYBX0J9"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKVQ6S7K6V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-0V1FYBX0J9');
+  gtag('config', 'G-WKVQ6S7K6V');
 </script>
 ```
 
@@ -36,7 +36,7 @@ Edit `src/layouts/BaseLayout.astro` — it's the single source of truth. The cha
 ## Verifying GA is live
 
 1. Open the site in an **incognito / private window** (avoids cached pages)
-2. Right-click → **View Page Source**, search for `G-0V1FYBX0J9`
+2. Right-click → **View Page Source**, search for `G-WKVQ6S7K6V`
 3. Or open DevTools (F12) → **Network** tab, refresh, and look for a request to `googletagmanager.com`
 4. In Google Analytics admin → **Reports** → **Real time**, you should see your own visit within seconds
 
